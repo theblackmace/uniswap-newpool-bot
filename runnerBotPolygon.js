@@ -8,6 +8,8 @@ const factoryInstance = new ethers.Contract('0x1F98431c8aD98523631AE4a59f267346e
 let poolArr = [];
 
 const runBot = () => {
+    console.log('Polygon Bot instance running.....');
+
     factoryInstance.on('PoolCreated', (token0, token1, fee, tickSpacing, pool) => {
         console.log('Pool Created');
         poolArr = [token0, token1, fee, tickSpacing, pool];
@@ -29,6 +31,7 @@ const client = new TwitterApi({
 const rwClient = client.readWrite;
 
 const tweet = async () => {
+    console.log('Tweeting....');
 
     const tweetText = 
     `A new liquidity pool was created using the Uniswap v3 Factory on Polygon 🦄
